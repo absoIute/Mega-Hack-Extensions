@@ -1,12 +1,14 @@
 #include "hackpro_ext.hpp"
 
-class MyExtension : public Hackpro::Extension {
+class MyExtension : public Hackpro::Extension 
+{
 protected:
 	void __stdcall mycallback() {}
 	void __stdcall check_callback() {}
 	void __stdcall uncheck_callback() {}
 
-	void Initialise() {
+	void Initialise() 
+	{
 		using namespace Hackpro;
 
 		this->AddButton("Bottom", callback_func(MyExtension::mycallback));
@@ -16,7 +18,8 @@ protected:
 	}
 
 public:
-	static MyExtension* Create() {
+	static MyExtension* Create() 
+	{
 		using namespace Hackpro;
 
 		auto pRet = static_cast<MyExtension*>(Extension::Create("My Extension"));
