@@ -1,4 +1,4 @@
-#include "hackpro_extension.h"
+#include "hackpro_ext.h"
 
 void __stdcall mycallback(void *aaa) {}
 void __stdcall check_callback(void *cb) {}
