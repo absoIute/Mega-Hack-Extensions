@@ -23,11 +23,11 @@ namespace Hackpro {
 	class ComboBox;
 	class TextBox;
 
-	using Callback =						void(__stdcall Extension::*)();
-	using ComboBoxCallback =				void(__stdcall Extension::*)(int, const char*);
+	using Callback = void(__stdcall Extension::*)();
+	using ComboBoxCallback = void(__stdcall Extension::*)(int, const char*);
 
-	#define callback_func(func)				reinterpret_cast<Callback>(&func)
-	#define combobox_callback_func(func)	reinterpret_cast<ComboBoxCallback>(&func)
+	#define callback_func(func) reinterpret_cast<Callback>(&func)
+	#define combobox_callback_func(func) reinterpret_cast<ComboBoxCallback>(&func)
 
 	class Extension {
 	private:
