@@ -1,10 +1,10 @@
-#include "hackpro_extension.h"
+#include "hackpro_ext.h"
 
 void __stdcall mycallback(void *aaa) {}
 void __stdcall check_callback(void *cb) {}
 void __stdcall uncheck_callback(void *cb) {}
 
-DWORD MainThread(LPVOID lpParam)
+DWORD WINAPI MainThread(LPVOID lpParam)
 {
 	if (InitialiseHackpro())
 	{
@@ -28,6 +28,6 @@ DWORD MainThread(LPVOID lpParam)
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
 	if (dwReason == DLL_PROCESS_ATTACH)
-		CreateThread(0, 0x1000, reinterpret_cast<LPTHREAD_START_ROUTINE>(&MainThread), nullptr, 0, nullptr);
+		CreateThread(0, 0x1000, MainThread, nullptr, 0, nullptr);
 	return TRUE;
 }
