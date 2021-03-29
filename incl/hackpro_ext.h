@@ -19,6 +19,8 @@ typedef void *(HP_IMPORT *ptr_HackproAddTextBox)(void *ptr, void(__stdcall *call
 typedef bool (HP_IMPORT *ptr_HackproSetTextBoxText)(void *box, const char *str);
 typedef bool (HP_IMPORT *ptr_HackproSetTextBoxPlaceholder)(void *box, const char *str);
 typedef const char *(HP_IMPORT *ptr_HackproGetTextBoxText)(void *box);
+typedef void (HP_IMPORT *ptr_HackproSetUserData)(void *ptr, void *data);
+typedef void *(HP_IMPORT *ptr_HackproGetUserData)(void *ptr);
 typedef bool (HP_IMPORT *ptr_HackproCommitExt)(void *ptr);
 typedef bool (HP_IMPORT *ptr_HackproWithdrawExt)(void *ptr);
 
@@ -34,6 +36,8 @@ ptr_HackproAddTextBox HackproAddTextBox = NULL;
 ptr_HackproSetTextBoxText HackproSetTextBoxText = NULL;
 ptr_HackproSetTextBoxPlaceholder HackproSetTextBoxPlaceholder = NULL;
 ptr_HackproGetTextBoxText HackproGetTextBoxText = NULL;
+ptr_HackproSetUserData HackproSetUserData = NULL;
+ptr_HackproGetUserData HackproGetUserData = NULL;
 ptr_HackproCommitExt HackproCommitExt = NULL;
 ptr_HackproWithdrawExt HackproWithdrawExt = NULL;
 
@@ -56,6 +60,10 @@ bool InitialiseHackpro()
 	HackproSetTextBoxText = (ptr_HackproSetTextBoxText)GetProcAddress(hMod, "?HackproSetTextBoxText@@YA_NPAXPBD@Z");
 	HackproSetTextBoxPlaceholder = (ptr_HackproSetTextBoxPlaceholder)GetProcAddress(hMod, "?HackproSetTextBoxPlaceholder@@YA_NPAXPBD@Z");
 	HackproGetTextBoxText = (ptr_HackproGetTextBoxText)GetProcAddress(hMod, "?HackproGetTextBoxText@@YAPBDPAX@Z");
+	
+	HackproSetUserData = (ptr_HackproSetUserData)GetProcAddress(hMod, "?HackproSetUserData@@YAXPAX0@Z");
+	HackproGetUserData = (ptr_HackproGetUserData)GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z");
+
 	HackproCommitExt = (ptr_HackproCommitExt)GetProcAddress(hMod, "?HackproCommitExt@@YA_NPAX@Z");
 	HackproWithdrawExt = (ptr_HackproWithdrawExt)GetProcAddress(hMod, "?HackproWithdrawExt@@YA_NPAX@Z");
 
