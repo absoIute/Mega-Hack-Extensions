@@ -102,6 +102,7 @@ namespace Hackpro {
 			return reinterpret_cast<void* (HP_IMPORT*)(Checkbox*)>(
 				GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z")
 				)(this);
+		}
 	};
 
 	class ComboBox {
