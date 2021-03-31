@@ -67,7 +67,7 @@ bool InitialiseHackpro()
 	HackproCommitExt = (ptr_HackproCommitExt)GetProcAddress(hMod, "?HackproCommitExt@@YA_NPAX@Z");
 	HackproWithdrawExt = (ptr_HackproWithdrawExt)GetProcAddress(hMod, "?HackproWithdrawExt@@YA_NPAX@Z");
 
-	return true;
+	return HackproIsReady;
 }
 
 #endif

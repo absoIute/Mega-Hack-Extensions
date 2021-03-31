@@ -13,7 +13,7 @@ namespace Hackpro {
 
 		if (hMod = GetModuleHandleA("hackpro.dll")) {
 			IsReady = reinterpret_cast<decltype(IsReady)>(GetProcAddress(hMod, "?HackproIsReady@@YA_NXZ"));
-			return true;
+			return IsReady;
 		}
 		return false;
 	}
@@ -71,6 +71,16 @@ namespace Hackpro {
 				GetProcAddress(hMod, "?HackproWithdrawExt@@YA_NPAX@Z")
 				)(this);
 		}
+		void SetUserData(void* data) {
+			return reinterpret_cast<void(HP_IMPORT*)(Extension*, void*)>(
+				GetProcAddress(hMod, "?HackproSetUserData@@YAXPAX0@Z")
+				)(this, data);
+		}
+		void* GetUserData() {
+			return reinterpret_cast<void* (HP_IMPORT*)(Extension*)>(
+				GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z")
+				)(this);
+		}
 	};
 
 	class Checkbox {
@@ -83,6 +93,15 @@ namespace Hackpro {
 				GetProcAddress(hMod, "?HackproSetCheckbox@@YA_NPAX_N@Z")
 				)(this, state);
 		}
+		void SetUserData(void* data) {
+			return reinterpret_cast<void(HP_IMPORT*)(Checkbox*, void*)>(
+				GetProcAddress(hMod, "?HackproSetUserData@@YAXPAX0@Z")
+				)(this, data);
+		}
+		void* GetUserData() {
+			return reinterpret_cast<void* (HP_IMPORT*)(Checkbox*)>(
+				GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z")
+				)(this);
 	};
 
 	class ComboBox {
@@ -91,7 +110,7 @@ namespace Hackpro {
 
 	public:
 		bool SetStrings(const char* strings[]) {
-			return reinterpret_cast<bool(HP_IMPORT*)(ComboBox*, const char* [])>(
+			return reinterpret_cast<bool(HP_IMPORT*)(ComboBox*, const char*[])>(
 				GetProcAddress(hMod, "?HackproSetComboBoxStrs@@YA_NPAXPAPBD@Z")
 				)(this, strings);
 		}
@@ -99,6 +118,16 @@ namespace Hackpro {
 			return reinterpret_cast<bool(HP_IMPORT*)(ComboBox*, int)>(
 				GetProcAddress(hMod, "?HackproSetComboBoxIndex@@YA_NPAXH@Z")
 				)(this, index);
+		}
+		void SetUserData(void* data) {
+			return reinterpret_cast<void(HP_IMPORT*)(ComboBox*, void*)>(
+				GetProcAddress(hMod, "?HackproSetUserData@@YAXPAX0@Z")
+				)(this, data);
+		}
+		void* GetUserData() {
+			return reinterpret_cast<void* (HP_IMPORT*)(ComboBox*)>(
+				GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z")
+				)(this);
 		}
 	};
 
@@ -120,6 +149,16 @@ namespace Hackpro {
 		const char* GetText() {
 			return reinterpret_cast<const char* (HP_IMPORT*)(TextBox*)>(
 				GetProcAddress(hMod, "?HackproGetTextBoxText@@YAPBDPAX@Z")
+				)(this);
+		}
+		void SetUserData(void* data) {
+			return reinterpret_cast<void(HP_IMPORT*)(TextBox*, void*)>(
+				GetProcAddress(hMod, "?HackproSetUserData@@YAXPAX0@Z")
+				)(this, data);
+		}
+		void* GetUserData() {
+			return reinterpret_cast<void* (HP_IMPORT*)(TextBox*)>(
+				GetProcAddress(hMod, "?HackproGetUserData@@YAPAXPAX@Z")
 				)(this);
 		}
 	};
