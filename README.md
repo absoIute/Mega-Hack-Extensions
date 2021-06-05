@@ -14,7 +14,7 @@ Now just wait until Mega Hack is ready, with `HackproIsReady()` (or the on-ready
 When Mega Hack is ready you can finally create your window! Initialise it with `HackproInitialiseExt()` with your chosen name, add ya buttons & stuff (in reverse order!) then commit the window with `HackproExtCommit()`. After committing a window you can no longer add extra elements to it, you can still update the state of existing elements, however.
 
 ## Loading my DLL
-To have your DLL load on launch add your DLL to the same folder hackpro.dll is located, then append your DLL to the `absolutedlls` file on a new line, make sure `hackpro.dll` is at the top of the file. Other custom ways of loading your DLL can work but aren't recommended.
+To have your DLL load on launch simple add your DLL to the extensions folder! (Requires v6.2.0-beta4 or higher)
 
 ## Where Documentation?
 Soon!
