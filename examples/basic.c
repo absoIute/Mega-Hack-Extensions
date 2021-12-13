@@ -28,6 +28,6 @@ DWORD WINAPI MainThread(LPVOID lpParam)
 BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID lpReserved)
 {
 	if (dwReason == DLL_PROCESS_ATTACH)
-		CreateThread(0, 0x1000, MainThread, nullptr, 0, nullptr);
+		CreateThread(0, 0x1000, MainThread, NULL, 0, NULL);
 	return TRUE;
 }
