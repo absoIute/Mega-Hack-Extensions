@@ -3,27 +3,17 @@
 
 #include "extensions2.h"
 
-void MH_CALL OnButton(MegaHackExt::Button *obj)
-{
-	std::cout << "Clicked\n";
-}
-
 DWORD MainThread(LPVOID lpParam)
 {
 	using namespace MegaHackExt;
 
 	Window *window = Window::Create("Window");
 
-	Button *button = Button::Create("Right");
-	button->setCallback(OnButton);
-
-	CheckBox *checkbox = CheckBox::Create("Left");
-	checkbox->setCallback([](CheckBox *obj, bool b) { std::cout << b << '\n'; });
-
-	window->add(HorizontalLayout::Create(checkbox, button));
-
-	Label *label = Label::Create("Label");
-	window->add(label);
+	const char *strs[] = { "One", "Two", "Three", nullptr };
+	ComboBox *combo = ComboBox::Create("Select: ", nullptr);
+	combo->setCallback([](ComboBox *obj, int index, const char *str) { std::cout << "index " << index << " selected: " << str << '\n'; });
+	combo->setValues(strs);
+	window->add(combo);
 
 	Client::commit(window);
 

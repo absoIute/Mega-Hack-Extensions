@@ -1,12 +1,8 @@
 #include <Windows.h>
 #include <iostream>
+#include <iomanip>
 
 #include "extensions2.h"
-
-void MH_CALL OnButton(MegaHackExt::Button *obj)
-{
-	std::cout << "Clicked\n";
-}
 
 DWORD MainThread(LPVOID lpParam)
 {
@@ -14,16 +10,9 @@ DWORD MainThread(LPVOID lpParam)
 
 	Window *window = Window::Create("Window");
 
-	Button *button = Button::Create("Right");
-	button->setCallback(OnButton);
-
-	CheckBox *checkbox = CheckBox::Create("Left");
-	checkbox->setCallback([](CheckBox *obj, bool b) { std::cout << b << '\n'; });
-
-	window->add(HorizontalLayout::Create(checkbox, button));
-
-	Label *label = Label::Create("Label");
-	window->add(label);
+	ColourPicker *picker = ColourPicker::Create({ 238, 119, 98 });
+	picker->setCallback([](ColourPicker *, Colour col) { std::cout << std::hex << std::setfill('0') << std::setw(2) << col.r << col.g << col.b << '\n'; });
+	window->add(picker);
 
 	Client::commit(window);
 
