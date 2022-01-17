@@ -2,7 +2,7 @@
 # Mega Hack Pro - Extensions
 Mega Hack Extensions let you create custom, interactive windows in Mega Hack Pro
 
-Extensions1 (v6 extensions) are still supported [here](extensions1)
+Extensions1 (v6 extensions) are still supported [here](extensions1) and work in both v6 & v7
 
 ## Getting Started
 Include the [extensions2.h](include/extensions2.h) file in your project and link to [hackpro.lib](bin/hackpro.lib) to be able to use the library.
@@ -19,7 +19,7 @@ You can also pass singular elements like buttons & checkboxes to the `MegaHackEx
 
 | Name | Minimum Version | Latest Supported Version |
 | --- | --- | --- |
-| Extensions1 | v6.2.0-beta2 | v7-GM1 |
+| Extensions1 | v6.2.0-beta4 | v7-GM1 |
 | Extensions2 | v7.0.0-beta1 | v7-GM1 |
 | MegaHackExt::Label | v7-GM1 | v7-GM1 |
 
