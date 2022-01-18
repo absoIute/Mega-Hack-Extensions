@@ -5,7 +5,7 @@
 
 namespace MegaHackExt
 {
-	struct Colour { unsigned char r, g, b; };
+	struct Color { unsigned char r, g, b; };
 
 	namespace Client
 	{
@@ -155,20 +155,20 @@ namespace MegaHackExt
 		double get() const;
 	};
 
-	class MH_DLL ColourPicker
+	class MH_DLL ColorPicker
 	{
-		typedef void (MH_CALL *Callback)(ColourPicker *, Colour);
+		typedef void (MH_CALL *Callback)(ColorPicker *, Color);
 	public:
-		ColourPicker() = delete;
-		ColourPicker(const ColourPicker &) = delete;
-		ColourPicker &operator=(const ColourPicker &) = delete;
-		~ColourPicker() = delete;
+		ColorPicker() = delete;
+		ColorPicker(const ColorPicker &) = delete;
+		ColorPicker &operator=(const ColorPicker &) = delete;
+		~ColorPicker() = delete;
 
-		static ColourPicker *Create(Colour colour);
+		static ColorPicker *Create(Color color);
 
 		void setCallback(Callback callback);
 
-		void set(Colour colour, bool trigger_callback = true);
-		Colour get() const;
+		void set(Color color, bool trigger_callback = true);
+		Color get() const;
 	};
 }
